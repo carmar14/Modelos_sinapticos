@@ -4,9 +4,9 @@ clear all; clc
 S=30 ;
 Nr=3;
 A=100;
-Tao1=30;
-Tao2=50;
-Tao3=20;
+Tao1=30;%30;
+Tao2=50;%50;
+Tao3=20;%20;
 dt=0.1;
 inh=-1;
 e=1;
@@ -27,16 +27,16 @@ end
 for i=1:c-1
        
      funcion1=(u(i));   
-    x(1,i+1)=(1-(dt/Tao1))*x(1,i)+(dt/Tao1)*(A*(funcion1.^2)./(S^2+funcion1.^2)).*(funcion1>=0);
+    x(1,i+1)=(1-(dt/Tao1))*x(1,i)+(dt/Tao1)*(A*(funcion1.^2)./(S^2+funcion1.^2));%.*(funcion1>=0);
     
      
     funcion2=(e*x(1,i));
-     x(2,i+1)=(1-(dt/Tao2))*x(2,i)+(dt/Tao2)*(A*(funcion2.^2)./(S^2+funcion2.^2)).*(funcion2>=0);   
+     x(2,i+1)=(1-(dt/Tao2))*x(2,i)+(dt/Tao2)*(A*(funcion2.^2)./(S^2+funcion2.^2));%.*(funcion2>=0);   
     
 
     funcion3=(e*x(1,i)+inh*x(2,i));
     
-    x(3,i+1)=(1-(dt/Tao3))*x(Nr,i)+(dt/Tao3)*(A*(funcion3.^2)./(S^2+funcion3.^2)).*(funcion3>=0);
+    x(3,i+1)=(1-(dt/Tao3))*x(Nr,i)+(dt/Tao3)*(A*(funcion3.^2)./(S^2+funcion3.^2))*(funcion3>=0);
     
 end
 
